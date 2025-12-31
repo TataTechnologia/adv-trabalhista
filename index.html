@@ -1,0 +1,299 @@
+Com certeza. Já realizei as substituições solicitadas: o número do WhatsApp foi atualizado para **55119799875199**, o e-mail para **contato@duvidatrabalhista.org** e adicionei uma mensagem automática personalizada para o link de contato.
+
+Aqui está o código completo e atualizado para você copiar e salvar como `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dúvidas Trabalhistas | Especialistas em Defesa do Trabalhador</title>
+    <meta name="description" content="Especialistas em Direitos do Trabalhador. Use nosso simulador de rescisão para casos de Pejotização, Rescisão Indireta e Trabalho sem Registro. Atendimento online em todo Brasil.">
+    <meta name="keywords" content="advogado trabalhista, rescisão indireta, pejotização, horas extras, trabalho sem registro, justiça do trabalho">
+    <meta name="author" content="Dúvidas Trabalhistas">
+
+    <style>
+        :root {
+            --bg-deep: #070b14; 
+            --primary-blue: #0ea5e9; 
+            --legal-yellow: #facc15; 
+            --glass: rgba(15, 23, 42, 0.85);
+            --text-gray: #94a3b8;
+            --accent-glow: rgba(14, 165, 233, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        header {
+            padding: 15px 0;
+            background: rgba(7, 11, 20, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px; color: #fff; text-decoration: none; }
+        .logo span { color: var(--primary-blue); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { color: #cbd5e1; text-decoration: none; font-size: 13px; font-weight: 600; transition: 0.3s; text-transform: uppercase; }
+        nav a:hover { color: var(--primary-blue); }
+
+        /* BOTÕES */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+        .btn-main { background: var(--primary-blue); color: #fff; box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.3); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5); background: #38bdf8; }
+        .btn-outline { border: 1px solid var(--primary-blue); color: var(--primary-blue); background: transparent; }
+
+        /* SEÇÕES */
+        .section-padding { padding: 80px 0; }
+        .hidden { display: none; }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* FORMULÁRIOS & CARDS */
+        .glass-card { 
+            background: var(--glass); 
+            padding: 40px; 
+            border-radius: 8px; 
+            border: 1px solid rgba(14, 165, 233, 0.1); 
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        input, select, textarea {
+            width: 100%; padding: 14px; background: rgba(15, 23, 42, 0.6); border: 1px solid #1e293b; color: white; border-radius: 4px; margin-bottom: 20px; outline: none;
+        }
+        input:focus, select:focus { border-color: var(--primary-blue); }
+
+        /* FAQ */
+        .faq-item { border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; margin-bottom: 12px; }
+        .faq-question { padding: 22px; background: rgba(30, 41, 59, 0.3); cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; }
+        .faq-answer { padding: 22px; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+
+        footer { background: #020617; padding: 60px 0 30px; border-top: 1px solid rgba(14, 165, 233, 0.1); text-align: center; }
+        
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background: #22c55e; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 28px; box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4); z-index: 1001; transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">⚖️ DÚVIDAS <span>TRABALHISTAS</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Início</a></li>
+                    <li><a href="#" onclick="showPage('calculator')">Calculadora</a></li>
+                    <li><a href="#" onclick="showPage('faq')">Dúvidas</a></li>
+                    <li><a href="#" onclick="showPage('contact')" class="btn btn-outline" style="padding: 10px 18px;">Consultoria</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home" class="page-section fade-in">
+        <section class="section-padding" style="background: radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 50%);">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-size: clamp(32px, 5vw, 60px); font-weight: 900; line-height: 1.1; margin-bottom: 24px;">
+                    Justiça para o seu <br><span style="color: var(--primary-blue);">Trabalho e Futuro</span>
+                </h1>
+                <p style="font-size: 18px; color: var(--text-gray); max-width: 650px; margin: 0 auto 40px;">
+                    Especialistas em direitos do trabalhador. Protegemos sua trajetória com transparência, tecnologia e foco total no que é seu por direito.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="btn btn-main" onclick="showPage('calculator')">Simular Meus Direitos</button>
+                    <button class="btn btn-outline" onclick="showPage('contact')">Falar com Advogado</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="calculator" class="page-section hidden fade-in">
+        <section class="section-padding">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 36px; font-weight: 800;">Simulador de Acerto</h2>
+                    <p style="color: var(--text-gray);">Entenda o valor do seu caso em segundos.</p>
+                </div>
+                <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
+                    <label style="font-size: 13px; font-weight: 700; color: var(--primary-blue);">MÉDIA SALARIAL BRUTA (R$)</label>
+                    <input type="number" id="salario" placeholder="Ex: 3500">
+                    
+                    <label style="font-size: 13px; font-weight: 700; color: var(--primary-blue);">TEMPO NA EMPRESA (MESES)</label>
+                    <input type="number" id="meses" placeholder="Ex: 12">
+                    
+                    <label style="font-size: 13px; font-weight: 700; color: var(--primary-blue);">SITUAÇÃO ATUAL</label>
+                    <select id="motivo">
+                        <option value="sem_registro">1. Trabalho sem Carteira Assinada</option>
+                        <option value="rescisao_indireta">2. Rescisão Indireta (Sair com direitos)</option>
+                        <option value="justa_causa">3. Reverter Justa Causa</option>
+                        <option value="horas_extras">4. Horas Extras não pagas</option>
+                        <option value="pejotizacao">5. Falso PJ (Pejotização)</option>
+                        <option value="demissao_comum">Demissão sem Justa Causa</option>
+                    </select>
+
+                    <button class="btn btn-main" style="width: 100%;" onclick="calcularSimulacao()">Analisar Direitos</button>
+                    
+                    <div id="resultado-calc" style="margin-top: 30px; display: none; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 8px; border-left: 4px solid var(--legal-yellow);">
+                        <p id="label-resultado" style="font-size: 12px; color: var(--legal-yellow); font-weight: bold; margin-bottom: 5px; text-transform: uppercase;"></p>
+                        <h2 id="valor-estimado" style="font-size: 38px; color: #fff;">R$ 0,00</h2>
+                        <p id="msg-extra" style="font-size: 14px; color: var(--text-gray); margin-top: 10px;"></p>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 20px;" onclick="showPage('contact')">Reivindicar este valor</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="faq" class="page-section hidden fade-in">
+        <section class="section-padding">
+            <div class="container" style="max-width: 800px;">
+                <h2 style="text-align: center; margin-bottom: 40px; font-size: 36px; font-weight: 800;">Dúvidas Frequentes</h2>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">Quanto tempo tenho para processar a empresa? <span>+</span></div>
+                    <div class="faq-answer hidden">Você tem até 2 anos após sair da empresa para entrar com a ação, podendo cobrar os últimos 5 anos de direitos não pagos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">O que acontece se eu for 'Falso PJ'? <span>+</span></div>
+                    <div class="faq-answer hidden">Se houver subordinação e rotina, a justiça reconhece o vínculo CLT. Você recebe FGTS, 13º e férias de todo o período trabalhado.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact" class="page-section hidden fade-in">
+        <section class="section-padding">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px;">
+                    <div>
+                        <h2 style="font-size: 36px; font-weight: 900; margin-bottom: 20px;">Fale Conosco</h2>
+                        <p style="color: var(--text-gray); font-size: 18px; margin-bottom: 30px;">Análise imediata do seu caso com total sigilo.</p>
+                        <div style="color: var(--primary-blue); font-weight: 600;">
+                            <p>📧 contato@duvidatrabalhista.org</p>
+                            <p>💬 Atendimento Nacional via WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <form id="formWhatsApp" onsubmit="handleFormSubmit(event)">
+                            <input type="text" id="form-nome" placeholder="Seu Nome Completo" required>
+                            <input type="tel" id="form-tel" placeholder="Seu WhatsApp (DDD)" required>
+                            <select id="form-assunto">
+                                <option value="Rescisão">Rescisão / Demissão</option>
+                                <option value="Pejotização">Pejotização / Sem Registro</option>
+                                <option value="Horas Extras">Horas Extras</option>
+                                <option value="Assédio">Assédio / Danos Morais</option>
+                            </select>
+                            <textarea id="form-msg" placeholder="Conte o que aconteceu..." rows="4" required></textarea>
+                            <button type="submit" class="btn btn-main" style="width: 100%;">Enviar para WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p style="font-weight: 700; color: #fff;">DÚVIDAS TRABALHISTAS</p>
+            <p style="font-size: 13px; color: var(--text-gray); margin-top: 10px;">&copy; 2025 Advocacia Digital. Atuação ética e transparente.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/55119799875199?text=Olá! Gostaria de tirar uma dúvida sobre meus direitos trabalhistas." id="floatBtn" target="_blank" class="whatsapp-float">✆</a>
+
+    <script>
+        // REDE SOCIAL: Configurado com seu número
+        const SEU_WHATSAPP = "55119799875199"; 
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleFaq(el) {
+            const answer = el.nextElementSibling;
+            answer.classList.toggle('hidden');
+            el.querySelector('span').innerText = answer.classList.contains('hidden') ? '+' : '-';
+        }
+
+        function calcularSimulacao() {
+            const s = parseFloat(document.getElementById('salario').value);
+            const m = parseInt(document.getElementById('meses').value);
+            const motivo = document.getElementById('motivo').value;
+            if(!s || !m) return alert("Preencha os dados!");
+
+            let total = 0; let label = "Estimativa Total"; let msg = "";
+            let baseProporcional = ((s/12)*m) + ((s/12)*m*1.33);
+
+            switch(motivo) {
+                case "sem_registro":
+                case "pejotizacao":
+                    total = baseProporcional + (s * 0.08 * m);
+                    label = "Direitos Sonegados Estimados";
+                    msg = "O valor inclui FGTS e proporcionais. Você pode exigir o reconhecimento do vínculo.";
+                    break;
+                case "rescisao_indireta":
+                    total = baseProporcional + s + (s * 0.08 * m * 0.4);
+                    msg = "Você sai com todos os direitos como se fosse demitido sem justa causa.";
+                    break;
+                case "justa_causa":
+                    total = baseProporcional + s + (s * 0.08 * m * 0.4);
+                    label = "Valor a Recuperar";
+                    msg = "Se a justa causa foi injusta, lutaremos para reaver esse valor total.";
+                    break;
+                default:
+                    total = baseProporcional + s + (s * 0.08 * m * 0.4);
+                    msg = "Estimativa de rescisão completa com aviso e multa do FGTS.";
+            }
+
+            document.getElementById('resultado-calc').style.display = 'block';
+            document.getElementById('label-resultado').innerText = label;
+            document.getElementById('valor-estimado').innerText = "R$ " + total.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+            document.getElementById('msg-extra').innerText = "*" + msg;
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const nome = document.getElementById('form-nome').value;
+            const tel = document.getElementById('form-tel').value;
+            const ass = document.getElementById('form-assunto').value;
+            const msg = document.getElementById('form-msg').value;
+
+            const texto = `*Novo Contato Site* ⚖️%0A%0A*Nome:* ${nome}%0A*WhatsApp:* ${tel}%0A*Assunto:* ${ass}%0A*Relato:* ${msg}`;
+            window.open(`https://wa.me/${SEU_WHATSAPP}?text=${texto}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+
+```
